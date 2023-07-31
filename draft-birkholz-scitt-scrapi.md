@@ -5,6 +5,7 @@ docname: draft-birkholz-scitt-scrapi-latest
 stand_alone: true
 ipr: trust200902
 area: Security
+submissiontype: IETF
 wg: TBD
 kw: Internet-Draft
 cat: std
@@ -39,6 +40,9 @@ normative:
   RFC7231:
 
 informative:
+
+  RFC2046:
+  RFC6838:
 
 --- abstract
 
@@ -100,7 +104,8 @@ As an example, submitting a Signed Statement with an unsupported signature algor
 ~~~
 
 Most error types are specific to the type of request and are defined in the respective subsections below.
-The one exception is the "malformed" error type, which indicates that the Transparency Service could not parse the client's request because it did not comply with this document:
+The one exception is the "malformed" error type, which indicates that the
+Transparency Service could not parse the client's request because it did not comply with this document:
 
 - Error code: `malformed` (The request could not be parsed).
 
@@ -141,7 +146,8 @@ One of the following:
   - Error code `badSignatureAlgorithm`
   - TBD: more error codes to be defined
 
-If 202 is returned, then clients should wait until Registration succeeded or failed by polling the Registration status using the Operation ID returned in the response.
+If 202 is returned, then clients should wait until Registration succeeded or failed
+by polling the Registration status using the Operation ID returned in the response.
 Clients should always obtain a Receipt as a proof that Registration has succeeded.
 
 ### Retrieve Operation Status
@@ -240,9 +246,8 @@ Maybe
 
 ## Media Type Registration
 
-This section requests registration of the "application/receipt+cose" media type [@RFC2046] in
-the "Media Types" registry [@IANA.MediaTypes] in the manner described
-in [@RFC6838].
+This section requests registration of the "application/receipt+cose" media type {{RFC2046}} in
+the "Media Types" registry in the manner described in {{RFC6838}}.
 
 TODO: Consider negotiation for receipt as "JSON" or "YAML".
 TODO: Consider impact of media type on "Data URIs" and QR Codes.
@@ -256,7 +261,7 @@ To indicate that the content is a SCITT Receipt:
 * Encoding considerations: TODO
 * Security considerations: TODO
 * Interoperability considerations: n/a
-* Published specification: [[ this specification ]]
+* Published specification: this specification
 * Applications that use this media type: TBD
 * Fragment identifier considerations: n/a
 * Additional information:
@@ -270,14 +275,8 @@ To indicate that the content is a SCITT Receipt:
 * Change Controller: IESG
 * Provisional registration?  No
 
---- back
 
-<reference anchor="IANA.MediaTypes" target="https://www.iana.org/assignments/media-types/media-types.xhtml">
-  <front>
-    <author fullname="IANA"></author>
-    <title>Media Types</title>
-  </front>
-</reference>
+--- back
 
 # Attic
 
