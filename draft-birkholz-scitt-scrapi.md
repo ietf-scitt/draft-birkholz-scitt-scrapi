@@ -54,6 +54,27 @@ Introduction Text
 
 {::boilerplate bcp14-tagged}
 
+# Relation to Identity
+
+The SCITT REST API is designed to support identifier systems that are currently relevant to supply chains, including DID, x509 and PGP.
+
+In order to support these systems, the API must be aware of specific header parameters, in particular, `kid`, `x5u` and `x5c`.
+
+The API enables implementers to deploy interoperable URIs for disclosing information feeds related to supply chain actors, and artifacts accessible via transparency services.
+
+## Authenticating Clients
+
+TBD (comments on OAuth / Client Attestation).
+
+## Discovering Federation
+
+TBD (comments on GAIN / OIDC).
+
+## Discovering Feeds
+
+TBD (comments on URLs / QR Codes).
+
+
 # SCITT Reference REST API
 
 ## Messages
@@ -217,7 +238,46 @@ Security Considerations
 
 Maybe
 
+## Media Type Registration
+
+This section requests registration of the "application/receipt+cose" media type [@RFC2046] in
+the "Media Types" registry [@IANA.MediaTypes] in the manner described
+in [@RFC6838].
+
+TODO: Consider negotiation for receipt as "JSON" or "YAML".
+TODO: Consider impact of media type on "Data URIs" and QR Codes.
+
+To indicate that the content is a SCITT Receipt:
+
+* Type name: application
+* Subtype name: receipt+cose
+* Required parameters: n/a
+* Optional parameters: n/a
+* Encoding considerations: TODO
+* Security considerations: TODO
+* Interoperability considerations: n/a
+* Published specification: [[ this specification ]]
+* Applications that use this media type: TBD
+* Fragment identifier considerations: n/a
+* Additional information:
+   Magic number(s): n/a
+   File extension(s): n/a
+   Macintosh file type code(s): n/a
+* Person & email address to contact for further information: TODO
+* Intended usage: COMMON
+* Restrictions on usage: none
+* Author: TODO
+* Change Controller: IESG
+* Provisional registration?  No
+
 --- back
+
+<reference anchor="IANA.MediaTypes" target="https://www.iana.org/assignments/media-types/media-types.xhtml">
+  <front>
+    <author fullname="IANA"></author>
+    <title>Media Types</title>
+  </front>
+</reference>
 
 # Attic
 
