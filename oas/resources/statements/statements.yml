@@ -1,0 +1,23 @@
+post:
+  summary: Register
+  operationId: registerSignedStatement
+  tags:
+    - Statements
+  security:
+    - OAuth2:
+        - 'statements:register'
+  requestBody:
+    description: Parameters for registering a signed statement
+    content:
+      application/json:
+        schema:
+          $ref: ../../schemas/Statement.yml
+  responses:
+    "200":
+      description: Expected response to a valid request
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/Receipt.yml
+    default:
+      $ref: ../../responses/UnexpectedError.yml

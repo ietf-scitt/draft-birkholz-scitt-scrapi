@@ -1,0 +1,29 @@
+title: SCITT Feed
+type: object
+properties:
+  items:
+    type: array
+    items:
+      type: object
+additionalProperties: True
+example:
+  {
+    "id": "https://vendor.transparency.example/feeds/purl/pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
+    "receipts": [
+      {
+        "id": "urn:uuid:14c30b3a-b63d-4cd6-b358-f97d07ae4f49",
+        "receipt": "0oREoQE4IqEZAUFWB-CUF5dlEOQ...GT8AcTB_yw",
+        "description": "SPDX Software Bill of Materials"
+      },
+      {
+        "id": "urn:uuid:2729213a-f7e7-4370-ae07-c1d79c9e406a",
+        "receipt": "0oREoQE4IqEZAUFWB-CUF5dlEOQ...GT8AcTB_yw",
+        "description": "NIST Vulnerability Disclosure Report"
+      },
+      {
+        "id": "urn:uuid:ced478aa-7cb5-4483-bccd-571dc03f5fe2",
+        "receipt": "0oREoQE4IqEZAUFWB-CUF5dlEOQ...GT8AcTB_yw",
+        "description": "Synk Vulnerability Details Report"
+      }
+    ]
+  }

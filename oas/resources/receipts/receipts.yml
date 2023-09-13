@@ -1,0 +1,24 @@
+get:
+  summary: Retrieve
+  operationId: resolveReceipt
+  tags:
+    - Receipts
+  security:
+    - OAuth2:
+        - 'receipts:resolve'
+  parameters:
+    - name: identifier
+      in: path
+      required: true
+      example: "urn:uuid:baaf45fc-5266-11ee-be56-0242ac120002"
+      schema:
+        type: string
+  responses:
+    "200":
+      description: Expected response to a valid request
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/Receipt.yml"
+    default:
+      $ref: "../../responses/UnexpectedError.yml"
