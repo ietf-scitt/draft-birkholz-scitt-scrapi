@@ -1,0 +1,16 @@
+title: SCITT Statement
+type: object
+properties:
+  id:
+    type: string
+    example: 'urn:uuid:baaf45fc-5266-11ee-be56-0242ac120002'
+  statement:
+    type: string
+    description: A base64url encoded scitt statement (a cose sign 1, with 🔥 attached payload 🔥)
+    example: '0oREoQE4IqnpfwTiObXFlg...FvstEiV3hBQnT8AcB_yw'
+additionalProperties: True
+example:
+  {
+    "id": "urn:uuid:baaf45fc-5266-11ee-be56-0242ac120002",
+    "statement": "0oREoQE4IqEZAU2FWB-CUF5dlEOQD8R50rMiP-aPpbpscmVkYWN0YWJsZV8xWB-CUM7paeOrnOrWw3pLLIJ42rlscmVkYWN0YWJsZV8yWB-CUKwDX2bQDMJ-ohLklplvOv9scmVkYWN0YWJsZV8zWB-CUJjoVQIlZT-VVXHr3HIxHb1scmVkYWN0YWJsZV80WCCCUCN6-rWeBcd1JZwf-kDkHpuBbHJlZGFjdGFibGVfNNhAWPSlZ2FycmF5XzGCY2JhcqEY3lggGsE0IXy17qHjFK3BczKgTiZPEn-mV_vEB7hh3LvoAxtnYXJyYXlfMoIKgaEY3lggjbE4CtUU-yac3di1JqGx9tiM_xPapcMIHukTxXVPoVZnYXJyYXlfM4JjYmFyoRjeWCDTkIX3jxYcqL4cGN7Sn7IzsCbFT4BWWs084CGiACPQJ2dhcnJheV80ggqBoRjeWCAmVXfTfGTmQ3xEUWTxbeb9rNhRba2ajZfuOrXwCYIEjmdhcnJheV81ggqhGN5YIK2JxHL7cDimjDTLcRpuHs8dVk2URvJBtX-0L1r2gonEWGCBDUsC5I1sbmWeySg838I_5CoUdbJCnOOIiSnj_Hh_FTodL4Jg9sHiV4LnpfwTiObXFlgT6_9Fk6MUr-RZrWl5AuZWjDjqf3ejO_KivPFvstEiV3hBQn-REGT8AcTB_yw"
+  }
