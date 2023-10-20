@@ -78,7 +78,6 @@ TBD (comments on GAIN / OIDC).
 
 TBD (comments on URLs / QR Codes).
 
-
 # SCITT Reference REST API
 
 ## Messages
@@ -99,13 +98,12 @@ As an example, submitting a Signed Statement with an unsupported signature algor
 ~~~json
 {
   "type": "urn:ietf:params:scitt:error:badSignatureAlgorithm",
-  "detail": "The Statement was signed with an algorithm the server does not support"
+  "detail": "The Statement was signed with an unsupported algorithm"
 }
 ~~~
 
 Most error types are specific to the type of request and are defined in the respective subsections below.
-The one exception is the "malformed" error type, which indicates that the
-Transparency Service could not parse the client's request because it did not comply with this document:
+The one exception is the "malformed" error type, which indicates that the Transparency Service could not parse the client's request because it did not comply with this document:
 
 - Error code: `malformed` (The request could not be parsed).
 
@@ -117,7 +115,7 @@ In the absence of this header field, this document does not specify a minimum.
 
 #### Request
 
-~~~
+~~~http
 POST <Base URL>/entries
 ~~~
 
@@ -146,15 +144,14 @@ One of the following:
   - Error code `badSignatureAlgorithm`
   - TBD: more error codes to be defined
 
-If 202 is returned, then clients should wait until Registration succeeded or failed
-by polling the Registration status using the Operation ID returned in the response.
+If 202 is returned, then clients should wait until Registration succeeded or failed by polling the Registration status using the Operation ID returned in the response.
 Clients should always obtain a Receipt as a proof that Registration has succeeded.
 
 ### Retrieve Operation Status
 
 #### Request
 
-~~~
+~~~http
 GET <Base URL>/operations/<Operation ID>
 ~~~
 
@@ -163,24 +160,24 @@ GET <Base URL>/operations/<Operation ID>
 One of the following:
 
 - Status 200 - Registration is running
-    - Header: `Content-Type: application/json`
-    - (Optional) Header: `Retry-After: <seconds>`
-    - Body: `{ "operationId": "<Operation ID>", "status": "running" }`
+  - Header: `Content-Type: application/json`
+  - (Optional) Header: `Retry-After: <seconds>`
+  - Body: `{ "operationId": "<Operation ID>", "status": "running" }`
 
 - Status 200 - Registration was successful
-    - Header: `Location: <Base URL>/entries/<Entry ID>`
-    - Header: `Content-Type: application/json`
-    - Body: `{ "operationId": "<Operation ID>", "status": "succeeded", "entryId": "<Entry ID>" }`
+  - Header: `Location: <Base URL>/entries/<Entry ID>`
+  - Header: `Content-Type: application/json`
+  - Body: `{ "operationId": "<Operation ID>", "status": "succeeded", "entryId": "<Entry ID>" }`
 
 - Status 200 - Registration failed
-    - Header `Content-Type: application/json`
-    - Body: `{ "operationId": "<Operation ID>", "status": "failed", "error": { "type": "<type>", "detail": "<detail>" } }`
-    - Error code: `badSignatureAlgorithm`
-    - [TODO]: more error codes to be defined, see [#17](https://github.com/ietf-wg-scitt/draft-ietf-scitt-architecture/issues/17)
+  - Header `Content-Type: application/json`
+  - Body: `{ "operationId": "<Operation ID>", "status": "failed", "error": { "type": "<type>", "detail": "<detail>" } }`
+  - Error code: `badSignatureAlgorithm`
+  - [TODO]: more error codes to be defined, see [#17](https://github.com/ietf-wg-scitt/draft-ietf-scitt-architecture/issues/17)
 
 - Status 404 - Unknown Operation ID
-    - Error code: `operationNotFound`
-    - This can happen if the operation ID has expired and been deleted.
+  - Error code: `operationNotFound`
+  - This can happen if the operation ID has expired and been deleted.
 
 If an operation failed, then error details SHOULD be embedded as a JSON problem details object in the `"error"` field.
 
@@ -191,7 +188,7 @@ This is because differentiating between the two may not be possible in an eventu
 
 #### Request
 
-~~~
+~~~http
 GET <Base URL>/entries/<Entry ID>
 ~~~
 
@@ -216,7 +213,7 @@ One of the following:
 
 #### Request
 
-~~~
+~~~http
 GET <Base URL>/entries/<Entry ID>/receipt
 ~~~
 
@@ -246,39 +243,36 @@ Maybe
 
 ## Media Type Registration
 
-This section requests registration of the "application/receipt+cose" media type {{RFC2046}} in
-the "Media Types" registry in the manner described in {{RFC6838}}.
+This section requests registration of the "application/receipt+cose" media type {{RFC2046}} in the "Media Types" registry in the manner described in {{RFC6838}}.
 
 TODO: Consider negotiation for receipt as "JSON" or "YAML".
 TODO: Consider impact of media type on "Data URIs" and QR Codes.
 
 To indicate that the content is a SCITT Receipt:
 
-* Type name: application
-* Subtype name: receipt+cose
-* Required parameters: n/a
-* Optional parameters: n/a
-* Encoding considerations: TODO
-* Security considerations: TODO
-* Interoperability considerations: n/a
-* Published specification: this specification
-* Applications that use this media type: TBD
-* Fragment identifier considerations: n/a
-* Additional information:
-   Magic number(s): n/a
-   File extension(s): n/a
-   Macintosh file type code(s): n/a
-* Person & email address to contact for further information: TODO
-* Intended usage: COMMON
-* Restrictions on usage: none
-* Author: TODO
-* Change Controller: IESG
-* Provisional registration?  No
-
+- Type name: application
+- Subtype name: receipt+cose
+- Required parameters: n/a
+- Optional parameters: n/a
+- Encoding considerations: TODO
+- Security considerations: TODO
+- Interoperability considerations: n/a
+- Published specification: this specification
+- Applications that use this media type: TBD
+- Fragment identifier considerations: n/a
+- Additional information:
+  - Magic number(s): n/a
+  - File extension(s): n/a
+  - Macintosh file type code(s): n/a
+- Person & email address to contact for further information: TODO
+- Intended usage: COMMON
+- Restrictions on usage: none
+- Author: TODO
+- Change Controller: IESG
+- Provisional registration?  No
 
 --- back
 
 # Attic
 
 Not ready to throw these texts into the trash bin yet.
-
