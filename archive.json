@@ -1,0 +1,468 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2023-11-05T01:07:19.708112+00:00",
+  "repo": "ietf-scitt/draft-birkholz-scitt-scrapi",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOJ-mB5s5W1I3G",
+      "title": "Thoughts after 117",
+      "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-scrapi/pull/1",
+      "state": "MERGED",
+      "author": "OR13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "A few thoughts after IETF 117.\r\n\r\nGoals:\r\n\r\n- Address identity up front (by not addressing it directly).\r\n- Frame feeds in the context of the API\r\n- Relate media types to feeds\r\n\r\nThis PR is mostly placeholders for future work, but hopefully highlights some areas for follow up based on our in person discussions.",
+      "createdAt": "2023-07-31T18:04:56Z",
+      "updatedAt": "2023-08-28T15:26:42Z",
+      "baseRepository": "ietf-scitt/draft-birkholz-scitt-scrapi",
+      "baseRefName": "main",
+      "baseRefOid": "c9f7378d686e460a65b17683bffddcaa596f1081",
+      "headRepository": "transmute-industries/draft-birkholz-scitt-scrapi",
+      "headRefName": "post-ietf-117-thoughts",
+      "headRefOid": "da8fbe0a6890275689f96a595b44169cdc2be5e9",
+      "closedAt": "2023-08-28T15:26:41Z",
+      "mergedAt": "2023-08-28T15:26:41Z",
+      "mergedBy": "henkbirkholz",
+      "mergeCommit": {
+        "oid": "75e08ff732f2d2b06adeb08721f7245d041d86f8"
+      },
+      "comments": [
+        {
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@henkbirkholz I can't merge this, but we should unless there are changes requested.",
+          "createdAt": "2023-08-28T15:07:58Z",
+          "updatedAt": "2023-08-28T15:07:58Z"
+        },
+        {
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "body": "fixed collaborator list",
+          "createdAt": "2023-08-28T15:26:13Z",
+          "updatedAt": "2023-08-28T15:26:13Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJ-mB5s5dF644",
+          "commit": {
+            "abbreviatedOid": "da8fbe0"
+          },
+          "author": "JAG-UK",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "All looks good, still lots to do :-)",
+          "createdAt": "2023-08-03T20:42:20Z",
+          "updatedAt": "2023-08-03T20:43:07Z",
+          "comments": [
+            {
+              "originalPosition": 75,
+              "body": "What's the payoff for having a YAML version? ",
+              "createdAt": "2023-08-03T20:42:20Z",
+              "updatedAt": "2023-08-03T20:43:07Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJ-mB5s5dIO0Z",
+          "commit": {
+            "abbreviatedOid": "da8fbe0"
+          },
+          "author": "JAG-UK",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-08-04T08:39:14Z",
+          "updatedAt": "2023-08-04T08:39:14Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOJ-mB5s5dJkMc",
+          "commit": {
+            "abbreviatedOid": "da8fbe0"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-08-04T12:37:17Z",
+          "updatedAt": "2023-08-04T12:37:18Z",
+          "comments": [
+            {
+              "originalPosition": 75,
+              "body": "YAML is growing in popularity, for cases where both humans and machines process the file, due to its readability and writability.\r\n\r\nYou could argue its a bad thing, if people start reading yaml instead of just using a machine to check it.\r\n\r\nThe point of the comment was to address requesting a representation of a receipt that a browser or filesystem might display nicely.\r\n",
+              "createdAt": "2023-08-04T12:37:18Z",
+              "updatedAt": "2023-08-04T12:37:18Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJ-mB5s5eAFIu",
+          "commit": {
+            "abbreviatedOid": "da8fbe0"
+          },
+          "author": "JAG-UK",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-08-14T15:17:49Z",
+          "updatedAt": "2023-08-14T15:17:50Z",
+          "comments": [
+            {
+              "originalPosition": 75,
+              "body": "OK got you. It's more easily transmissible in a web/REST world and more supported by standard tooling than pure COSE/CBOR. Makes a lot of sense, our implementation wraps in JSON for the same reasons.",
+              "createdAt": "2023-08-14T15:17:49Z",
+              "updatedAt": "2023-08-14T15:17:50Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJ-mB5s5eAFY4",
+          "commit": {
+            "abbreviatedOid": "da8fbe0"
+          },
+          "author": "JAG-UK",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2023-08-14T15:18:24Z",
+          "updatedAt": "2023-08-14T15:18:24Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOJ-mB5s5fR6WA",
+          "commit": {
+            "abbreviatedOid": "da8fbe0"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-08-28T15:25:36Z",
+          "updatedAt": "2023-08-28T15:25:36Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "id": "PR_kwDOJ-mB5s5aRfoj",
+      "title": "Add OAS definition",
+      "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-scrapi/pull/2",
+      "state": "MERGED",
+      "author": "OR13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This pull request addresses some of the API issues we have discussed.\r\n\r\n1. to leverages JSON instead of CBOR / COSE media types, this makes it easier for developers.\r\n1. it defines the mandatory service identity parts for DIDs and JWTs / CWTs that are related to the transparency service\r\n1. it updates the endpoints to match the latest language (statements, receipts, feeds, issuers)\r\n\r\nThe existing draft text is not compatible, but my hope is that the API definition is easier to review and iterate on, and we can adjust the draft text, when we feel things have solidified enough",
+      "createdAt": "2023-09-13T20:45:00Z",
+      "updatedAt": "2023-10-16T18:33:25Z",
+      "baseRepository": "ietf-scitt/draft-birkholz-scitt-scrapi",
+      "baseRefName": "main",
+      "baseRefOid": "75e08ff732f2d2b06adeb08721f7245d041d86f8",
+      "headRepository": "transmute-industries/draft-birkholz-scitt-scrapi",
+      "headRefName": "feat/add-oas",
+      "headRefOid": "efeda0943378d5507149c2df84d22df5a33c4294",
+      "closedAt": "2023-10-16T18:33:25Z",
+      "mergedAt": "2023-10-16T18:33:25Z",
+      "mergedBy": "SteveLasker",
+      "mergeCommit": {
+        "oid": "c48d689aae3c577726068101c55c22753436eb3b"
+      },
+      "comments": [
+        {
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Ship this version so that we have something complete to review.",
+          "createdAt": "2023-10-16T18:30:18Z",
+          "updatedAt": "2023-10-16T18:30:18Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJ-mB5s5g4g2U",
+          "commit": {
+            "abbreviatedOid": "efeda09"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-09-13T20:46:12Z",
+          "updatedAt": "2023-09-13T20:46:12Z",
+          "comments": [
+            {
+              "originalPosition": 9,
+              "body": "This is a problem when your payload is large, which is the case for high resolution images, machine learning models, etc...",
+              "createdAt": "2023-09-13T20:46:12Z",
+              "updatedAt": "2023-09-13T20:46:12Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJ-mB5s5g4hCc",
+          "commit": {
+            "abbreviatedOid": "efeda09"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-09-13T20:46:50Z",
+          "updatedAt": "2023-09-13T20:46:50Z",
+          "comments": [
+            {
+              "originalPosition": 15,
+              "body": "These are text encoded binary interfaces because OAS does not support CBOR well.",
+              "createdAt": "2023-09-13T20:46:50Z",
+              "updatedAt": "2023-09-13T20:46:50Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJ-mB5s5g9_Hg",
+          "commit": {
+            "abbreviatedOid": "efeda09"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-09-14T13:13:49Z",
+          "updatedAt": "2023-09-14T13:13:50Z",
+          "comments": [
+            {
+              "originalPosition": 34,
+              "body": "one is a reliable permanent locator to the record of the statement being made transparent via a receipt.",
+              "createdAt": "2023-09-14T13:13:50Z",
+              "updatedAt": "2023-09-14T13:13:50Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJ-mB5s5iS5oZ",
+          "commit": {
+            "abbreviatedOid": "efeda09"
+          },
+          "author": "JAG-UK",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "First glance looks like a good start. Have some concerns about the bundling some data structures so I want to import it into an OpenAPI package and mock it out",
+          "createdAt": "2023-09-28T15:13:37Z",
+          "updatedAt": "2023-09-28T15:33:33Z",
+          "comments": [
+            {
+              "originalPosition": 55,
+              "body": "Awesome, this is what we've been looking for",
+              "createdAt": "2023-09-28T15:13:38Z",
+              "updatedAt": "2023-09-28T15:33:33Z"
+            },
+            {
+              "originalPosition": 26,
+              "body": "Synk or Snyk?",
+              "createdAt": "2023-09-28T15:16:07Z",
+              "updatedAt": "2023-09-28T15:33:33Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJ-mB5s5iUXyR",
+          "commit": {
+            "abbreviatedOid": "efeda09"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-09-28T18:44:05Z",
+          "updatedAt": "2023-09-28T18:44:05Z",
+          "comments": [
+            {
+              "originalPosition": 26,
+              "body": "this one : ) https://snyk.io/",
+              "createdAt": "2023-09-28T18:44:05Z",
+              "updatedAt": "2023-09-28T18:44:05Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJ-mB5s5iUX6F",
+          "commit": {
+            "abbreviatedOid": "efeda09"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-09-28T18:44:26Z",
+          "updatedAt": "2023-09-28T18:44:27Z",
+          "comments": [
+            {
+              "originalPosition": 26,
+              "body": "```suggestion\r\n        \"description\": \"Snyk Vulnerability Details Report\"\r\n```",
+              "createdAt": "2023-09-28T18:44:26Z",
+              "updatedAt": "2023-09-28T18:44:27Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJ-mB5s5kLad_",
+          "commit": {
+            "abbreviatedOid": "efeda09"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-10-16T18:27:50Z",
+          "updatedAt": "2023-10-16T18:27:50Z",
+          "comments": [
+            {
+              "originalPosition": 26,
+              "body": "```suggestion\r\n        \"description\": \"Snyk Vulnerability Details Report\"\r\n```",
+              "createdAt": "2023-10-16T18:27:50Z",
+              "updatedAt": "2023-10-16T18:27:50Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJ-mB5s5kLamd",
+          "commit": {
+            "abbreviatedOid": "efeda09"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-10-16T18:28:13Z",
+          "updatedAt": "2023-10-16T18:28:13Z",
+          "comments": [
+            {
+              "originalPosition": 26,
+              "body": "```suggestion\r\n        \"description\": \"Snyk Vulnerability Details Report\"\r\n```",
+              "createdAt": "2023-10-16T18:28:13Z",
+              "updatedAt": "2023-10-16T18:28:14Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJ-mB5s5kLbG-",
+          "commit": {
+            "abbreviatedOid": "efeda09"
+          },
+          "author": "SteveLasker",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "LGTM\r\nA few typos we'll fix in another formatting PR",
+          "createdAt": "2023-10-16T18:29:37Z",
+          "updatedAt": "2023-10-16T18:29:37Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOJ-mB5s5kLbIV",
+          "commit": {
+            "abbreviatedOid": "efeda09"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "APPROVED",
+          "body": ":ship: it",
+          "createdAt": "2023-10-16T18:29:40Z",
+          "updatedAt": "2023-10-16T18:29:40Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOJ-mB5s5kLccH",
+          "commit": {
+            "abbreviatedOid": "efeda09"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-10-16T18:33:04Z",
+          "updatedAt": "2023-10-16T18:33:04Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "id": "PR_kwDOJ-mB5s5c8b_0",
+      "title": "Formatting updates for submission",
+      "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-scrapi/pull/3",
+      "state": "MERGED",
+      "author": "SteveLasker",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2023-10-16T20:33:45Z",
+      "updatedAt": "2023-10-20T17:10:21Z",
+      "baseRepository": "ietf-scitt/draft-birkholz-scitt-scrapi",
+      "baseRefName": "main",
+      "baseRefOid": "c48d689aae3c577726068101c55c22753436eb3b",
+      "headRepository": "SteveLasker/draft-birkholz-scitt-scrapi",
+      "headRefName": "formatting-updates",
+      "headRefOid": "5b32af4023701229a38efd436760b48635a38640",
+      "closedAt": "2023-10-20T16:33:55Z",
+      "mergedAt": "2023-10-20T16:33:55Z",
+      "mergedBy": "OR13",
+      "mergeCommit": {
+        "oid": "b0ee171a26d634a8f54eb46779dcd023ccdf2a63"
+      },
+      "comments": [],
+      "reviews": []
+    }
+  ]
+}
