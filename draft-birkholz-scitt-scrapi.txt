@@ -5,10 +5,10 @@
 TBD                                                          H. Birkholz
 Internet-Draft                                            Fraunhofer SIT
 Intended status: Standards Track                               O. Steele
-Expires: 22 April 2024                                         Transmute
+Expires: 7 June 2024                                           Transmute
                                                                J. Geater
                                                               RKVST Inc.
-                                                         20 October 2023
+                                                         5 December 2023
 
 
                           SCITT Reference APIs
@@ -16,7 +16,9 @@ Expires: 22 April 2024                                         Transmute
 
 Abstract
 
-   Abstract Text
+   This document defines the SCITT REST API, an http interface to
+   transparency services, supporting the primary operations needed to
+   implement the SCITT Architecture [I-D.draft-ietf-scitt-architecture].
 
 Discussion Venues
 
@@ -40,7 +42,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 22 April 2024.
+   This Internet-Draft will expire on 7 June 2024.
 
 Copyright Notice
 
@@ -73,7 +75,10 @@ Table of Contents
    4.  Privacy Considerations
    5.  Security Considerations
    6.  IANA Considerations
-     6.1.  Media Type Registration
+     6.1.  URN Sub-namespace for SCITT (urn:ietf:params:scitt)
+     6.2.  Media Types
+     6.3.  Well Known URIs
+     6.4.  Media Type Registration
    7.  References
      7.1.  Normative References
      7.2.  Informative References
@@ -82,7 +87,9 @@ Table of Contents
 
 1.  Introduction
 
-   Introduction Text
+   This API definition MAY be exposed externally as part of a suite of
+   APIs, or be encapsulated internally and exposed indirectly via
+   proprietart APIs.
 
 1.1.  Requirements Notation
 
@@ -313,17 +320,40 @@ Table of Contents
 
 4.  Privacy Considerations
 
-   Privacy Considerations
+   TODO
 
 5.  Security Considerations
 
-   Security Considerations
+   TODO
 
 6.  IANA Considerations
 
-   Maybe
+6.1.  URN Sub-namespace for SCITT (urn:ietf:params:scitt)
 
-6.1.  Media Type Registration
+   IANA is requested to register the URN sub-namespace
+   urn:ietf:params:scitt in the "IETF URN Sub-namespace for Registered
+   Protocol Parameter Identifiers" Registry [IANA.params], following the
+   template in [RFC3553]:
+
+      Registry name:  scitt
+
+      Specification:  [RFCthis]
+
+      Repository:  http://www.iana.org/assignments/scitt
+
+      Index value:  No transformation needed.
+
+6.2.  Media Types
+
+   TODO: Register them from here.
+
+6.3.  Well Known URIs
+
+   For discovering scitt configuration.
+
+   TODO: Register them from here.
+
+6.4.  Media Type Registration
 
    This section requests registration of the "application/receipt+cose"
    media type [RFC2046] in the "Media Types" registry in the manner
@@ -378,10 +408,27 @@ Table of Contents
 
 7.1.  Normative References
 
+   [I-D.draft-ietf-scitt-architecture]
+              Birkholz, H., Delignat-Lavaud, A., Fournet, C., Deshpande,
+              Y., and S. Lasker, "An Architecture for Trustworthy and
+              Transparent Digital Supply Chains", Work in Progress,
+              Internet-Draft, draft-ietf-scitt-architecture-04, 23
+              October 2023, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-scitt-architecture-04>.
+
+   [IANA.params]
+              IANA, "Uniform Resource Name (URN) Namespace for IETF
+              Use", <http://www.iana.org/assignments/params>.
+
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/rfc/rfc2119>.
+
+   [RFC3553]  Mealling, M., Masinter, L., Hardie, T., and G. Klyne, "An
+              IETF URN Sub-namespace for Registered Protocol
+              Parameters", BCP 73, RFC 3553, DOI 10.17487/RFC3553, June
+              2003, <https://www.rfc-editor.org/rfc/rfc3553>.
 
    [RFC7231]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
               Protocol (HTTP/1.1): Semantics and Content", RFC 7231,
