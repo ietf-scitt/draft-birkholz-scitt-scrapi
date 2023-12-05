@@ -40,18 +40,22 @@ normative:
   RFC3553:
 
   IANA.params:
+  I-D.draft-ietf-scitt-architecture: SCITT-ARCH
 
 informative:
 
 --- abstract
 
-Abstract Text
+This document defines the SCITT REST API,
+an http interface to transparency services,
+supporting the primary operations needed to implement the SCITT Architecture {{-SCITT-ARCH}}.
 
 --- middle
 
 # Introduction
 
-Introduction Text
+This API definition MAY be exposed externally as part of a suite of APIs,
+or be encapsulated internally and exposed indirectly via proprietart APIs.
 
 ## Requirements Notation
 
@@ -210,11 +214,11 @@ The retrieved Receipt may be embedded in the corresponding COSE_Sign1 document i
 
 # Privacy Considerations
 
-Privacy Considerations
+TODO
 
 # Security Considerations
 
-Security Considerations
+TODO
 
 # IANA Considerations
 
