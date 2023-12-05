@@ -38,6 +38,10 @@ normative:
 
   RFC7807:
   RFC7231:
+  RFC3553:
+
+  IANA.params:
+  I-D.draft-ietf-scitt-architecture: SCITT-ARCH
 
 informative:
 
@@ -46,13 +50,16 @@ informative:
 
 --- abstract
 
-Abstract Text
+This document defines the SCITT REST API,
+an http interface to transparency services,
+supporting the primary operations needed to implement the SCITT Architecture {{-SCITT-ARCH}}.
 
 --- middle
 
 # Introduction
 
-Introduction Text
+This API definition MAY be exposed externally as part of a suite of APIs,
+or be encapsulated internally and exposed indirectly via proprietart APIs.
 
 ## Requirements Notation
 
@@ -231,15 +238,42 @@ The retrieved Receipt may be embedded in the corresponding COSE_Sign1 document i
 
 # Privacy Considerations
 
-Privacy Considerations
+TODO
 
 # Security Considerations
 
-Security Considerations
+TODO
 
 # IANA Considerations
 
-Maybe
+## URN Sub-namespace for SCITT (urn:ietf:params:scitt)
+
+IANA is requested to register the URN sub-namespace `urn:ietf:params:scitt`
+in the "IETF URN Sub-namespace for Registered Protocol Parameter Identifiers"
+Registry {{IANA.params}}, following the template in {{RFC3553}}:
+
+~~~output
+
+   Registry name:  scitt
+
+   Specification:  [RFCthis]
+
+   Repository:  http://www.iana.org/assignments/scitt
+
+   Index value:  No transformation needed.
+~~~
+
+
+## Media Types
+
+TODO: Register them from here.
+
+## Well Known URIs
+
+For discovering scitt configuration.
+
+TODO: Register them from here.
+
 
 ## Media Type Registration
 
