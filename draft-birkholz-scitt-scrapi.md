@@ -29,8 +29,8 @@ author:
   email: orie@transmute.industries
 - ins: J. Geater
   name: Jon Geater
-  organization: RKVST Inc.
-  email: jon.geater@rkvst.com
+  organization: DataTrails Inc.
+  email: jon.geater@datatrails.ai
   country: UK
   country: United States
 
