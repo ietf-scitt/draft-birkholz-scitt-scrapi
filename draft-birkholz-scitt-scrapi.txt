@@ -5,10 +5,10 @@
 TBD                                                          H. Birkholz
 Internet-Draft                                            Fraunhofer SIT
 Intended status: Standards Track                               O. Steele
-Expires: 7 June 2024                                           Transmute
+Expires: 9 June 2024                                           Transmute
                                                                J. Geater
-                                                              RKVST Inc.
-                                                         5 December 2023
+                                                         DataTrails Inc.
+                                                         7 December 2023
 
 
                           SCITT Reference APIs
@@ -42,7 +42,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 7 June 2024.
+   This Internet-Draft will expire on 9 June 2024.
 
 Copyright Notice
 
@@ -475,6 +475,6 @@ Authors' Addresses
 
 
    Jon Geater
-   RKVST Inc.
+   DataTrails Inc.
    United States
-   Email: jon.geater@rkvst.com
+   Email: jon.geater@datatrails.ai
