@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-12-05T01:06:50.478372+00:00",
+  "timestamp": "2023-12-07T01:06:15.656337+00:00",
   "repo": "ietf-scitt/draft-birkholz-scitt-scrapi",
   "labels": [
     {
@@ -49,7 +49,78 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 4,
+      "id": "I_kwDOJ-mB5s54yek4",
+      "title": "using media types for errors",
+      "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-scrapi/issues/4",
+      "state": "OPEN",
+      "author": "SteveLasker",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "See [using media types for errors](https://github.com/ietf-wg-scitt/draft-ietf-scitt-architecture/issues/62) from https://github.com/ietf-wg-scitt/draft-ietf-scitt-architecture/",
+      "createdAt": "2023-12-05T15:38:07Z",
+      "updatedAt": "2023-12-05T19:38:01Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "aj-stein-nist",
+          "authorAssociation": "NONE",
+          "body": "I believe the salient question was from @OR13 was from the previous issue comment in https://github.com/ietf-wg-scitt/draft-ietf-scitt-architecture/issues/62#issue-1641116305 was not answered.\r\n\r\n> [](https://github.com/ietf-wg-scitt/draft-ietf-scitt-architecture/pull/60#discussion_r1148486103)\r\n> \r\n> Why?\r\n> \r\n> Are there any references for this design choice I can review?\r\n\r\nAnswer: [RFC 9457 Section 3](https://datatracker.ietf.org/doc/html/rfc9457#section-3). However, it doesn't have MUST or other requirements even if it is a RFC, so not sure the media type structure is mandatory.\r\n\r\n> The canonical model for problem details is a JSON [[JSON](https://datatracker.ietf.org/doc/html/rfc8259)] object. When serialized in a JSON document, that format is identified with the \"application/problem+json\" media type.",
+          "createdAt": "2023-12-05T18:39:13Z",
+          "updatedAt": "2023-12-05T18:39:13Z"
+        },
+        {
+          "author": "SteveLasker",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Hi, @aj-stein-nist\r\nWe just moved this to SCRAPI to focus the discussion under this repo as we're splitting out the APIs to it's own draft, from the Architecture doc. \r\nNo specific discussion was had on the actual issue, yet.",
+          "createdAt": "2023-12-05T19:12:50Z",
+          "updatedAt": "2023-12-05T19:12:50Z"
+        },
+        {
+          "author": "aj-stein-nist",
+          "authorAssociation": "NONE",
+          "body": "> Hi, @aj-stein-nist We just moved this to SCRAPI to focus the discussion under this repo as we're splitting out the APIs to it's own draft, from the Architecture doc. No specific discussion was had on the actual issue, yet.\r\n\r\nBut the referenced issue we did have some questions particularly on the media type for errors, I linked to the open question regarding why we ought to do it from Orie. I do not think the current OpenAPI spec reflects changing the media type. So maybe not discussion from others, but the implied task in the issue that one contributor asked is why change the OAS spec and I was pointing to why (following another IETF RFC).\r\n\r\nSo do we need to discuss this on the mailing list? ",
+          "createdAt": "2023-12-05T19:38:00Z",
+          "updatedAt": "2023-12-05T19:38:00Z"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "id": "I_kwDOJ-mB5s54yyZ0",
+      "title": "Issuer identity and key transparency",
+      "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-scrapi/issues/5",
+      "state": "OPEN",
+      "author": "SteveLasker",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Copying here from [ietf-wg-scitt/draft-ietf-scitt-architecture](https://github.com/ietf-wg-scitt/draft-ietf-scitt-architecture/issues/65)",
+      "createdAt": "2023-12-05T16:14:49Z",
+      "updatedAt": "2023-12-05T16:14:58Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 6,
+      "id": "I_kwDOJ-mB5s54y_Se",
+      "title": "Document key discovery for OIDC",
+      "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-scrapi/issues/6",
+      "state": "OPEN",
+      "author": "SteveLasker",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Copied from [ietf-wg-scitt/draft-ietf-scitt-architecture #87](https://github.com/ietf-wg-scitt/draft-ietf-scitt-architecture/issues/87)",
+      "createdAt": "2023-12-05T16:34:18Z",
+      "updatedAt": "2023-12-05T16:34:18Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
   "pulls": [
     {
       "number": 1,
@@ -461,6 +532,74 @@
       "mergeCommit": {
         "oid": "b0ee171a26d634a8f54eb46779dcd023ccdf2a63"
       },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 7,
+      "id": "PR_kwDOJ-mB5s5hNvtn",
+      "title": "Updates",
+      "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-scrapi/pull/7",
+      "state": "MERGED",
+      "author": "OR13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2023-12-05T18:31:51Z",
+      "updatedAt": "2023-12-05T22:23:26Z",
+      "baseRepository": "ietf-scitt/draft-birkholz-scitt-scrapi",
+      "baseRefName": "main",
+      "baseRefOid": "b0ee171a26d634a8f54eb46779dcd023ccdf2a63",
+      "headRepository": "transmute-industries/draft-birkholz-scitt-scrapi",
+      "headRefName": "main",
+      "headRefOid": "d48ad2385ad1f0c5680b8495b8cf2afd05eecdad",
+      "closedAt": "2023-12-05T22:23:26Z",
+      "mergedAt": "2023-12-05T22:23:26Z",
+      "mergedBy": "SteveLasker",
+      "mergeCommit": {
+        "oid": "6dc1f66424873eb763d37859faff76c194c9ce70"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJ-mB5s5pRlk_",
+          "commit": {
+            "abbreviatedOid": "d48ad23"
+          },
+          "author": "SteveLasker",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2023-12-05T22:23:21Z",
+          "updatedAt": "2023-12-05T22:23:21Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "id": "PR_kwDOJ-mB5s5hPCeD",
+      "title": "Update DataTrails branding",
+      "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-scrapi/pull/8",
+      "state": "OPEN",
+      "author": "SteveLasker",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2023-12-05T22:32:12Z",
+      "updatedAt": "2023-12-05T22:32:29Z",
+      "baseRepository": "ietf-scitt/draft-birkholz-scitt-scrapi",
+      "baseRefName": "main",
+      "baseRefOid": "6dc1f66424873eb763d37859faff76c194c9ce70",
+      "headRepository": "ietf-scitt/draft-birkholz-scitt-scrapi",
+      "headRefName": "steve/datatrails-branding",
+      "headRefOid": "897f6c80ee1a074f15d24f615e77ff602ea89e0c",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
       "comments": [],
       "reviews": []
     }
