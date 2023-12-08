@@ -68,13 +68,13 @@ or be encapsulated internally and exposed indirectly via proprietart APIs.
 In cases where a signed statement is issued by one party and registered by another,
 there is a need to prove posession of key material and detect tampering while authenticating both parties.
 
-Typically a nonce would be chosen by the transparency service and the second party would sign over the nonce, 
+Typically a nonce would be chosen by the transparency service and the second party would sign over the nonce,
 when registering the first issuer's signed statement.
 
-In order to avoid interactivity and improve interoperability, 
+In order to avoid interactivity and improve interoperability,
 the document describes a mandatory to support confirmation scheme, for use with confirmation methods.
 
-In this scheme the verifier's challenge is a recent unix timestamp, 
+In this scheme the verifier's challenge is a recent unix timestamp,
 and the registering party need no request this information from the transparency service.
 
 Here is an example key binding token that can be paired with the confirmation claim in a signed statement:
@@ -118,7 +118,7 @@ GET <Base URL>/registration/challenge?intention=....
 - Header: `Content-Type: application/json`
 - (Optional) Header: `Retry-After: <seconds>`
 - Body: `{ "token": "JWT | SD-JWT | base64url( CWT | SD-CWT )>" }`
-    
+
 ### Registration Endpoint
 
 #### Request
