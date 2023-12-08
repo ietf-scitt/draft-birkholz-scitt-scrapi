@@ -63,6 +63,80 @@ or be encapsulated internally and exposed indirectly via proprietart APIs.
 
 # SCITT Reference REST API
 
+## Key Binding Confirmation
+
+In cases where a signed statement is issued by one party and registered by another,
+there is a need to prove posession of key material and detect tampering while authenticating both parties.
+
+Typically a nonce would be chosen by the transparency service and the second party would sign over the nonce, 
+when registering the first issuer's signed statement.
+
+In order to avoid interactivity and improve interoperability, 
+the document describes a mandatory to support confirmation scheme, for use with confirmation methods.
+
+In this scheme the verifier's challenge is a recent unix timestamp, 
+and the registering party need no request this information from the transparency service.
+
+Here is an example key binding token that can be paired with the confirmation claim in a signed statement:
+
+~~~json
+{
+  "iat": 1698077790,
+  "aud": "https://transparency.example",
+  "nonce": "1698077790"
+}
+~~~
+
+When applying registration policies to signed statements with confirmation, the transparency service acts as a verifier, and performs the following checks:
+
+1. verify the integrity of the issuer's signed statement
+2. confirm the verified content meets the registration policy for the transparency service.
+3. verify the key binding token, using the confirmation claim in the verified issuer signed statement
+4. ensure the key binding token has a nonce that is a string representation of a recent unix timestamp.
+
+The exact window of validity for proving possession is a configuration detail of the transparency service.
+
+If the confirmation key is stolen, the attacker can produce key binding tokens from that point forward in time.
+In an interactive confirmation schema, the transparency service can force the confirmation key holder to produce a signature over a nonce that is not guessable, and this prevents certain attacks related to the duration of access to a signing capability and other timing details. However, the cost of coordinating with the transparency service, coupled with the purpose of registering with a transparency service (to obtain a receipt, proving a signed statement was acceptable at a point in time) justify specifying the recent timestamp nonce as a manadatory to implement context binding.
+
+In the case that a SCITT transparency service wants to support challenges (nonces) that are context binding,
+the transparency service can expose a "challenge token endpoint".
+
+This endpoint can process request paramters, and issuer a challenge token, that future regsitrations can use to bind to the original request.
+This interaction model works well for scenarios where requirements for a given regsitration might change over time, but it is important for the registering party to commit to acceptable values at the time that a signed statement is registered. These endpoints are optional to implement.
+
+### Challenge Endpoint
+
+#### Request
+
+~~~
+GET <Base URL>/registration/challenge?intention=....
+~~~
+
+#### Response
+
+- Header: `Content-Type: application/json`
+- (Optional) Header: `Retry-After: <seconds>`
+- Body: `{ "token": "JWT | SD-JWT | base64url( CWT | SD-CWT )>" }`
+    
+### Registration Endpoint
+
+#### Request
+
+~~~
+POST <Base URL>/registration
+~~~
+
+Headers:
+
+- `Content-Type: application/cose`
+
+Body: SCITT COSE_Sign1 message
+
+Note: that the challenge token MUST be present and integrity protected when submitting signed statements to this endpoint.
+Note: this endpoint is a duplicate of `POST <Base URL>/entries`
+
+
 ## Messages
 
 All messages are sent as HTTP GET or POST requests.
