@@ -72,7 +72,7 @@ Typically a nonce would be chosen by the transparency service and the second par
 when registering the first issuer's signed statement.
 
 In order to avoid interactivity and improve interoperability,
-the document describes a mandatory to support confirmation scheme, for use with confirmation methods.
+document describes a non-exclusive, but mandatory to support, confirmation scheme
 
 In this scheme the verifier's challenge is a recent unix timestamp,
 and the registering party need no request this information from the transparency service.
