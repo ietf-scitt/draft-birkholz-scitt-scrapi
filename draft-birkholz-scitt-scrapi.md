@@ -75,7 +75,7 @@ In order to avoid interactivity and improve interoperability,
 document describes a non-exclusive, but mandatory to support, confirmation scheme
 
 In this scheme the verifier's challenge is a recent unix timestamp,
-and the registering party need no request this information from the transparency service.
+party need not
 
 Here is an example key binding token that can be paired with the confirmation claim in a signed statement:
 
