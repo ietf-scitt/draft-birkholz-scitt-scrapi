@@ -1,0 +1,56 @@
+openapi: '3.0.0'
+info:
+  version: 1.0.0
+  title: Open API for SCITT
+  description: Identifier and Credentials APIs for DID.
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+
+servers:
+  - url: https://vendor.transparency.example
+
+tags:
+  - name: Discovery
+  - name: Identifiers
+  - name: Statements
+  - name: Receipts
+
+paths:
+  
+  /.well-known/jwt-issuer:
+    $ref: './resources/.well-known/jwt-issuer.yml'
+  /.well-known/jwks:
+    $ref: './resources/.well-known/jwks.yml'
+  /.well-known/did.json:
+    $ref: './resources/.well-known/did.json.yml'
+
+  /issuers/{identifier}:
+    $ref: './resources/issuers/issuers.yml'
+
+  /statements:
+    $ref: './resources/statements/statements.yml'
+
+  /receipts/{identifier}:
+    $ref: './resources/receipts/receipts.yml'
+
+  /feeds:
+    $ref: './resources/feeds/feeds.yml'
+    
+  /feeds/{identifier}:
+    $ref: './resources/feeds/feed.yml'
+
+
+components:
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://example.com/oauth/token
+          scopes:
+            'issuers:resolve': Grants permission to resolve an issuer's controller document
+            'statements:register': Grants permission to register a signed statement
+            'receipts:resolve': Grants permission to resolve a receipt
+            'feeds:list': Grants permission to list feeds
+            'feeds:resolve': Grants permission to resolve a feed

@@ -6,6 +6,7 @@ stand_alone: true
 submissionType: IETF
 ipr: trust200902
 area: Security
+submissiontype: IETF
 wg: TBD
 kw: Internet-Draft
 cat: std
@@ -29,8 +30,8 @@ author:
   email: orie@transmute.industries
 - ins: J. Geater
   name: Jon Geater
-  organization: RKVST Inc.
-  email: jon.geater@rkvst.com
+  organization: DataTrails Inc.
+  email: jon.geater@datatrails.ai
   country: UK
   country: United States
 
@@ -44,6 +45,9 @@ normative:
   I-D.draft-ietf-scitt-architecture: SCITT-ARCH
 
 informative:
+
+  RFC2046:
+  RFC6838:
 
 --- abstract
 
@@ -61,6 +65,26 @@ or be encapsulated internally and exposed indirectly via proprietart APIs.
 ## Requirements Notation
 
 {::boilerplate bcp14-tagged}
+
+# Relation to Identity
+
+The SCITT REST API is designed to support identifier systems that are currently relevant to supply chains, including DID, x509 and PGP.
+
+In order to support these systems, the API must be aware of specific header parameters, in particular, `kid`, `x5u` and `x5c`.
+
+The API enables implementers to deploy interoperable URIs for disclosing information feeds related to supply chain actors, and artifacts accessible via transparency services.
+
+## Authenticating Clients
+
+TBD (comments on OAuth / Client Attestation).
+
+## Discovering Federation
+
+TBD (comments on GAIN / OIDC).
+
+## Discovering Feeds
+
+TBD (comments on URLs / QR Codes).
 
 # SCITT Reference REST API
 
@@ -215,24 +239,24 @@ GET https://transparency.example/operations/{operation_id}
 One of the following:
 
 - Status 200 - Registration is running
-    - Header: `Content-Type: application/json`
-    - (Optional) Header: `Retry-After: <seconds>`
-    - Body: `{ "operationId": "<Operation ID>", "status": "running" }`
+  - Header: `Content-Type: application/json`
+  - (Optional) Header: `Retry-After: <seconds>`
+  - Body: `{ "operationId": "<Operation ID>", "status": "running" }`
 
 - Status 200 - Registration was successful
-    - Header: `Location: <Base URL>/entries/<Entry ID>`
-    - Header: `Content-Type: application/json`
-    - Body: `{ "operationId": "<Operation ID>", "status": "succeeded", "entryId": "<Entry ID>" }`
+  - Header: `Location: <Base URL>/entries/<Entry ID>`
+  - Header: `Content-Type: application/json`
+  - Body: `{ "operationId": "<Operation ID>", "status": "succeeded", "entryId": "<Entry ID>" }`
 
 - Status 200 - Registration failed
-    - Header `Content-Type: application/json`
-    - Body: `{ "operationId": "<Operation ID>", "status": "failed", "error": { "type": "<type>", "detail": "<detail>" } }`
-    - Error code: `badSignatureAlgorithm`
-    - [TODO]: more error codes to be defined, see [#17](https://github.com/ietf-wg-scitt/draft-ietf-scitt-architecture/issues/17)
+  - Header `Content-Type: application/json`
+  - Body: `{ "operationId": "<Operation ID>", "status": "failed", "error": { "type": "<type>", "detail": "<detail>" } }`
+  - Error code: `badSignatureAlgorithm`
+  - [TODO]: more error codes to be defined, see [#17](https://github.com/ietf-wg-scitt/draft-ietf-scitt-architecture/issues/17)
 
 - Status 404 - Unknown Operation ID
-    - Error code: `operationNotFound`
-    - This can happen if the operation ID has expired and been deleted.
+  - Error code: `operationNotFound`
+  - This can happen if the operation ID has expired and been deleted.
 
 If an operation failed, then error details SHOULD be embedded as a JSON problem details object in the `"error"` field.
 
@@ -243,7 +267,7 @@ This is because differentiating between the two may not be possible in an eventu
 
 #### Request
 
-~~~
+~~~http
 GET https://transparency.example/entries/{entry_id}
 ~~~
 
@@ -268,8 +292,8 @@ One of the following:
 
 #### Request
 
-~~~
-GET <Base URL>/entries/<Entry ID>/receipt
+~~~http
+GET https://transparency.example/entries/{entry_id}/receipt
 ~~~
 
 #### Response
@@ -323,9 +347,38 @@ For discovering scitt configuration.
 TODO: Register them from here.
 
 
+## Media Type Registration
+
+This section requests registration of the "application/receipt+cose" media type {{RFC2046}} in the "Media Types" registry in the manner described in {{RFC6838}}.
+
+TODO: Consider negotiation for receipt as "JSON" or "YAML".
+TODO: Consider impact of media type on "Data URIs" and QR Codes.
+
+To indicate that the content is a SCITT Receipt:
+
+- Type name: application
+- Subtype name: receipt+cose
+- Required parameters: n/a
+- Optional parameters: n/a
+- Encoding considerations: TODO
+- Security considerations: TODO
+- Interoperability considerations: n/a
+- Published specification: this specification
+- Applications that use this media type: TBD
+- Fragment identifier considerations: n/a
+- Additional information:
+  - Magic number(s): n/a
+  - File extension(s): n/a
+  - Macintosh file type code(s): n/a
+- Person & email address to contact for further information: TODO
+- Intended usage: COMMON
+- Restrictions on usage: none
+- Author: TODO
+- Change Controller: IESG
+- Provisional registration?  No
+
 --- back
 
 # Attic
 
 Not ready to throw these texts into the trash bin yet.
-

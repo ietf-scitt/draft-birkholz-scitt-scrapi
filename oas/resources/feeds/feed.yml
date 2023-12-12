@@ -1,0 +1,25 @@
+
+get:
+  summary: Resolve
+  operationId: resolveFeed
+  tags:
+    - Feeds
+  security:
+    - OAuth2:
+        - 'feeds:resolve'
+  parameters:
+    - name: identifier
+      in: path
+      required: true
+      example: "pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie"
+      schema:
+        type: string
+  responses:
+    "200":
+      description: Expected response to a valid request
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/Feed.yml"
+    default:
+      $ref: "../../responses/UnexpectedError.yml"

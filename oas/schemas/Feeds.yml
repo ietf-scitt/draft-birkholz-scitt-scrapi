@@ -1,0 +1,25 @@
+title: SCITT Feeds
+type: object
+properties:
+  items:
+    type: array
+    items:
+      type: object
+additionalProperties: True
+example:
+  {
+    "items": [
+      {
+        "id": "https://vendor.transparency.example/feeds/cpe/cpe:2.3:a:mitre:caldera:2.0.0:*:*:*:*:*:*:*",
+        "description": "A NIST NVD CPE based feed. https://nvd.nist.gov/products/cpe"
+      },
+      {
+        "id": "https://vendor.transparency.example/feeds/purl/pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie",
+        "description": "A PURL based feed. https://github.com/package-url/purl-spec"
+      },
+      {
+        "id": "https://vendor.transparency.example/feeds/01/09520123456788/10/ABC1/21/12345",
+        "description": "A GS1 Digital Link based feed. https://www.gs1.org/standards/gs1-digital-link"
+      }
+    ]
+  }
