@@ -86,17 +86,16 @@ Here is an example key binding token that can be paired with the confirmation cl
 When applying registration policies to signed statements with confirmation, the transparency service acts as a verifier, and performs the following checks:
 
 1. verify the integrity of the issuer's signed statement
-2. confirm the verified content meets the registration policy for the transparency service.
-3. verify the key binding token, using the confirmation claim in the verified issuer signed statement
-4. ensure the key binding token has a nonce that is a string representation of a recent unix timestamp.
+1. confirm the verified content meets the registration policy for the transparency service.
+1. verify the key binding token, using the confirmation claim in the verified issuer signed statement
+1. ensure the key binding token has a nonce that is a string representation of a recent unix timestamp.
 
 The exact window of validity for proving possession is a configuration detail of the transparency service. unix timestamps are used so that only a losely synchronised notion of time need be assumed and there is no requirement to account for timezones
 
 If the confirmation key is stolen, the attacker can produce key binding tokens from that point forward in time.
 In an interactive confirmation schema, the transparency service can force the confirmation key holder to produce a signature over a nonce that is not guessable, and this prevents certain attacks related to the duration of access to a signing capability and other timing details. However, the cost of coordinating with the transparency service, coupled with the purpose of registering with a transparency service (to obtain a receipt, proving a signed statement was acceptable at a point in time) justify specifying the recent timestamp nonce as a manadatory to implement context binding.
 
-In the case that a SCITT transparency service wants to support challenges (nonces) that are context binding,
-the transparency service can expose a "challenge token endpoint".
+In the case that a SCITT transparency service wants to support challenges (nonces) that are context binding, the transparency service can expose a "challenge token endpoint".
 
 This endpoint can process request paramters, and issuer a challenge token, that future regsitrations can use to bind to the original request.
 This interaction model works well for scenarios where requirements for a given regsitration might change over time, but it is important for the registering party to commit to acceptable values at the time that a signed statement is registered. These endpoints are optional to implement.
