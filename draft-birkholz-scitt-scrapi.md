@@ -89,7 +89,7 @@ When applying registration policies to signed statements with confirmation, the 
 1. verify the integrity of the issuer's signed statement
 1. confirm the verified content meets the registration policy for the transparency service.
 1. verify the key binding token, using the confirmation claim in the verified issuer signed statement
-1. ensure the key binding token has a nonce that is a string representation of a recent unix timestamp.
+1. ensure the key binding token has a nonce that is a string representation of a recent unix timestamp
 
 The exact window of validity for proving possession is a configuration detail of the transparency service. unix timestamps are used so that only a losely synchronised notion of time need be assumed and there is no requirement to account for timezones
 
