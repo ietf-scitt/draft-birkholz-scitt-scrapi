@@ -65,17 +65,13 @@ or be encapsulated internally and exposed indirectly via proprietart APIs.
 
 ## Key Binding Confirmation
 
-In cases where a signed statement is issued by one party and registered by another,
-there is a need to prove posession of key material and detect tampering while authenticating both parties.
+In cases where a signed statement is issued by one party and registered by another, there is a need to prove posession of key material and detect tampering while authenticating both parties.
 
-Typically a nonce would be chosen by the transparency service and the second party would sign over the nonce,
-when registering the first issuer's signed statement.
+Typically a nonce would be chosen by the transparency service and the second party would sign over the nonce, when registering the first issuer's signed statement.
 
-In order to avoid interactivity and improve interoperability,
-document describes a non-exclusive, but mandatory to support, confirmation scheme
+In order to avoid interactivity and improve interoperability, document describes a non-exclusive, but mandatory to support, confirmation scheme
 
-In this scheme the verifier's challenge is a recent unix timestamp,
-party need not
+In this scheme the verifier's challenge is a recent unix timestamp, the presenting party need not request this information from the transparency service.
 
 Here is an example key binding token that can be paired with the confirmation claim in a signed statement:
 
