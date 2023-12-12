@@ -3,6 +3,7 @@ title: SCITT Reference APIs
 abbrev: SCRAPI
 docname: draft-birkholz-scitt-scrapi-latest
 stand_alone: true
+submissionType: IETF
 ipr: trust200902
 area: Security
 wg: TBD
@@ -104,22 +105,23 @@ This interaction model works well for scenarios where requirements for a given r
 
 #### Request
 
-~~~
-GET <Base URL>/registration/challenge?intention=....
+~~~http
+GET https://transparency.example/registration/challenge
 ~~~
 
 #### Response
 
 - Header: `Content-Type: application/json`
 - (Optional) Header: `Retry-After: <seconds>`
+- Query: `?intention={todo}`
 - Body: `{ "token": "JWT | SD-JWT | base64url( CWT | SD-CWT )>" }`
 
 ### Registration Endpoint
 
 #### Request
 
-~~~
-POST <Base URL>/registration
+~~~http
+POST https://transparency.example/registration
 ~~~
 
 Headers:
@@ -129,7 +131,7 @@ Headers:
 Body: SCITT COSE_Sign1 message
 
 Note: that the challenge token MUST be present and integrity protected when submitting signed statements to this endpoint.
-Note: this endpoint is a duplicate of `POST <Base URL>/entries`
+Note: this endpoint is a duplicate of `POST https://transparency.example/entries`
 
 
 ## Messages
@@ -150,7 +152,7 @@ As an example, submitting a Signed Statement with an unsupported signature algor
 ~~~json
 {
   "type": "urn:ietf:params:scitt:error:badSignatureAlgorithm",
-  "detail": "The Statement was signed with an algorithm the server does not support"
+  "detail": "Signing algorithm not support"
 }
 ~~~
 
@@ -167,8 +169,8 @@ In the absence of this header field, this document does not specify a minimum.
 
 #### Request
 
-~~~
-POST <Base URL>/entries
+~~~http
+POST https://transparency.example/entries
 ~~~
 
 Headers:
@@ -203,8 +205,8 @@ Clients should always obtain a Receipt as a proof that Registration has succeede
 
 #### Request
 
-~~~
-GET <Base URL>/operations/<Operation ID>
+~~~http
+GET https://transparency.example/operations/{operation_id}
 ~~~
 
 #### Response
@@ -241,7 +243,7 @@ This is because differentiating between the two may not be possible in an eventu
 #### Request
 
 ~~~
-GET <Base URL>/entries/<Entry ID>
+GET https://transparency.example/entries/{entry_id}
 ~~~
 
 Query parameters:
