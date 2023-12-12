@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-12-10T01:10:33.449252+00:00",
+  "timestamp": "2023-12-12T01:06:44.298661+00:00",
   "repo": "ietf-scitt/draft-birkholz-scitt-scrapi",
   "labels": [
     {
@@ -617,19 +617,137 @@
       "labels": [],
       "body": "Strawman proposal for: \r\n\r\n- https://mailarchive.ietf.org/arch/msg/scitt/QcKHs7-SH1NcsXrPzsa4FCdUSGY/\r\n- PoC implementation here https://github.com/transmute-industries/dune/pull/1",
       "createdAt": "2023-12-08T14:30:13Z",
-      "updatedAt": "2023-12-08T14:32:00Z",
+      "updatedAt": "2023-12-11T18:13:30Z",
       "baseRepository": "ietf-scitt/draft-birkholz-scitt-scrapi",
       "baseRefName": "main",
       "baseRefOid": "0b60cf34231d60cea4603c987f386419febf52ef",
       "headRepository": "transmute-industries/draft-birkholz-scitt-scrapi",
       "headRefName": "feat/key-binding-registrations",
-      "headRefOid": "c432b51b5d1eb389761d818a489fc713eb7a6b7f",
+      "headRefOid": "08b30b1dabfced96658c9cbe30cc753e34101eeb",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "comments": [
+        {
+          "author": "mprorock",
+          "authorAssociation": "NONE",
+          "body": "Definite start in the right direction - I would say it is enough to get in and build on",
+          "createdAt": "2023-12-11T15:06:51Z",
+          "updatedAt": "2023-12-11T15:06:51Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJ-mB5s5p0hbi",
+          "commit": {
+            "abbreviatedOid": "c432b51"
+          },
+          "author": "mprorock",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-12-11T15:06:24Z",
+          "updatedAt": "2023-12-11T15:06:24Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOJ-mB5s5p0gOg",
+          "commit": {
+            "abbreviatedOid": "c432b51"
+          },
+          "author": "robinbryce",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "general thumbs up",
+          "createdAt": "2023-12-11T15:04:10Z",
+          "updatedAt": "2023-12-11T15:11:44Z",
+          "comments": [
+            {
+              "originalPosition": 13,
+              "body": "```suggestion\r\ndocument describes a non-exclusive, but mandatory to support, confirmation scheme\r\n```\r\n\r\nAssuming you intended that it be a base line ?",
+              "createdAt": "2023-12-11T15:04:10Z",
+              "updatedAt": "2023-12-11T15:11:44Z"
+            },
+            {
+              "originalPosition": 16,
+              "body": "```suggestion\r\nparty need not\r\n```",
+              "createdAt": "2023-12-11T15:05:05Z",
+              "updatedAt": "2023-12-11T15:11:44Z"
+            },
+            {
+              "originalPosition": 35,
+              "body": "```suggestion\r\nThe exact window of validity for proving possession is a configuration detail of the transparency service. unix timestamps are used so that only a losely synchronised notion of time need be assumed and there is no requirement to account for timezones\r\n```",
+              "createdAt": "2023-12-11T15:07:38Z",
+              "updatedAt": "2023-12-11T15:11:44Z"
+            },
+            {
+              "originalPosition": 39,
+              "body": "It feels like there should be some way to indicate the 'quality' of the nonce scheme. I'm not sure I can make a useful suggestion as to how tho",
+              "createdAt": "2023-12-11T15:10:15Z",
+              "updatedAt": "2023-12-11T15:11:44Z"
+            },
+            {
+              "originalPosition": 45,
+              "body": "I particularly like the qualification re commiting at the time the statement is registered.",
+              "createdAt": "2023-12-11T15:11:17Z",
+              "updatedAt": "2023-12-11T15:11:44Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJ-mB5s5p0uU5",
+          "commit": {
+            "abbreviatedOid": "c432b51"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-12-11T15:26:55Z",
+          "updatedAt": "2023-12-11T15:26:56Z",
+          "comments": [
+            {
+              "originalPosition": 39,
+              "body": "perhaps a good question to ask the OAuth list.",
+              "createdAt": "2023-12-11T15:26:55Z",
+              "updatedAt": "2023-12-11T15:26:56Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJ-mB5s5p1Cxw",
+          "commit": {
+            "abbreviatedOid": "08b30b1"
+          },
+          "author": "SteveLasker",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "Based on the IETF call, these would be optional for a registration policy to evaluate, enabling a host of great new scenarios.\r\nThat was my biggest question. \r\nI'll do another review this afternoon, but wanted to share a few quick markdown comments and a dangling sentence to aide in merging. ",
+          "createdAt": "2023-12-11T15:54:48Z",
+          "updatedAt": "2023-12-11T18:13:30Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "Nit on formatting. We've been following one sentence = one line for code review clarity, as opposed to ~80 character, line wrapping. \r\nCan you fix for consistency?",
+              "createdAt": "2023-12-11T15:54:49Z",
+              "updatedAt": "2023-12-11T18:13:30Z"
+            },
+            {
+              "originalPosition": 16,
+              "body": "incomplete sentence...",
+              "createdAt": "2023-12-11T15:56:29Z",
+              "updatedAt": "2023-12-11T18:13:30Z"
+            },
+            {
+              "originalPosition": 31,
+              "body": "please make all numbers 1. and let markdown formatting resolve incremental numbering. If someone inserts a new item, the rest won't need to change.",
+              "createdAt": "2023-12-11T15:57:41Z",
+              "updatedAt": "2023-12-11T18:13:30Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
