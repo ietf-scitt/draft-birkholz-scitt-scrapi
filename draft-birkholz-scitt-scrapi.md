@@ -94,7 +94,8 @@ When applying registration policies to signed statements with confirmation, the 
 The exact window of validity for proving possession is a configuration detail of the transparency service. unix timestamps are used so that only a losely synchronised notion of time need be assumed and there is no requirement to account for timezones
 
 If the confirmation key is stolen, the attacker can produce key binding tokens from that point forward in time.
-In an interactive confirmation schema, the transparency service can force the confirmation key holder to produce a signature over a nonce that is not guessable, and this prevents certain attacks related to the duration of access to a signing capability and other timing details. However, the cost of coordinating with the transparency service, coupled with the purpose of registering with a transparency service (to obtain a receipt, proving a signed statement was acceptable at a point in time) justify specifying the recent timestamp nonce as a manadatory to implement context binding.
+In an interactive confirmation schema, the transparency service can force the confirmation key holder to produce a signature over a nonce that is not guessable, and this prevents certain attacks related to the duration of access to a signing capability and other timing details.
+However, the cost of coordinating with the transparency service, coupled with the purpose of registering with a transparency service (to obtain a receipt, proving a signed statement was acceptable at a point in time) justify specifying the recent timestamp nonce as a mandatory to implement context binding.
 
 In the case that a SCITT transparency service wants to support challenges (nonces) that are context binding, the transparency service can expose a "challenge token endpoint".
 
