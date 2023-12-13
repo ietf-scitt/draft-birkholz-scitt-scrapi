@@ -5,7 +5,7 @@ docname: draft-birkholz-scitt-scrapi-latest
 stand_alone: true
 ipr: trust200902
 area: Security
-submissiontype: IETF
+submissionType: IETF
 wg: TBD
 kw: Internet-Draft
 cat: std
@@ -87,6 +87,77 @@ TBD (comments on URLs / QR Codes).
 
 # SCITT Reference REST API
 
+## Key Binding Confirmation
+
+In cases where a signed statement is issued by one party and registered by another, there is a need to prove posession of key material and detect tampering while authenticating both parties.
+
+Typically a nonce would be chosen by the transparency service and the second party would sign over the nonce, when registering the first issuer's signed statement.
+
+In order to avoid interactivity and improve interoperability, document describes a non-exclusive, but mandatory to support, confirmation scheme
+
+In this scheme the verifier's challenge is a recent unix timestamp, the presenting party need not request this information from the transparency service.
+
+Here is an example key binding token that can be paired with the confirmation claim in a signed statement:
+
+~~~json
+{
+  "iat": 1698077790,
+  "aud": "https://transparency.example",
+  "nonce": "1698077790"
+}
+~~~
+
+When applying registration policies to signed statements with confirmation, the transparency service acts as a verifier, and performs the following checks:
+
+1. verify the integrity of the issuer's signed statement
+1. confirm the verified content meets the registration policy for the transparency service.
+1. verify the key binding token, using the confirmation claim in the verified issuer signed statement
+1. ensure the key binding token has a nonce that is a string representation of a recent unix timestamp
+
+The exact window of validity for proving possession is a configuration detail of the transparency service. unix timestamps are used so that only a losely synchronised notion of time need be assumed and there is no requirement to account for timezones
+
+If the confirmation key is stolen, the attacker can produce key binding tokens from that point forward in time.
+In an interactive confirmation schema, the transparency service can force the confirmation key holder to produce a signature over a nonce that is not guessable, and this prevents certain attacks related to the duration of access to a signing capability and other timing details.
+However, the cost of coordinating with the transparency service, coupled with the purpose of registering with a transparency service (to obtain a receipt, proving a signed statement was acceptable at a point in time) justify specifying the recent timestamp nonce as a mandatory to implement context binding.
+
+In the case that a SCITT transparency service wants to support challenges (nonces) that are context binding, the transparency service can expose a "challenge token endpoint".
+
+This endpoint can process request paramters, and issuer a challenge token, that future regsitrations can use to bind to the original request.
+This interaction model works well for scenarios where requirements for a given regsitration might change over time, but it is important for the registering party to commit to acceptable values at the time that a signed statement is registered. These endpoints are optional to implement.
+
+### Challenge Endpoint
+
+#### Request
+
+~~~http
+GET https://transparency.example/registration/challenge
+~~~
+
+#### Response
+
+- Header: `Content-Type: application/json`
+- (Optional) Header: `Retry-After: <seconds>`
+- Query: `?intention={todo}`
+- Body: `{ "token": "JWT | SD-JWT | base64url( CWT | SD-CWT )>" }`
+
+### Registration Endpoint
+
+#### Request
+
+~~~http
+POST https://transparency.example/registration
+~~~
+
+Headers:
+
+- `Content-Type: application/cose`
+
+Body: SCITT COSE_Sign1 message
+
+Note: that the challenge token MUST be present and integrity protected when submitting signed statements to this endpoint.
+Note: this endpoint is a duplicate of `POST https://transparency.example/entries`
+
+
 ## Messages
 
 All messages are sent as HTTP GET or POST requests.
@@ -105,7 +176,7 @@ As an example, submitting a Signed Statement with an unsupported signature algor
 ~~~json
 {
   "type": "urn:ietf:params:scitt:error:badSignatureAlgorithm",
-  "detail": "The Statement was signed with an unsupported algorithm"
+  "detail": "Signing algorithm not support"
 }
 ~~~
 
@@ -123,7 +194,7 @@ In the absence of this header field, this document does not specify a minimum.
 #### Request
 
 ~~~http
-POST <Base URL>/entries
+POST https://transparency.example/entries
 ~~~
 
 Headers:
@@ -159,7 +230,7 @@ Clients should always obtain a Receipt as a proof that Registration has succeede
 #### Request
 
 ~~~http
-GET <Base URL>/operations/<Operation ID>
+GET https://transparency.example/operations/{operation_id}
 ~~~
 
 #### Response
@@ -196,7 +267,7 @@ This is because differentiating between the two may not be possible in an eventu
 #### Request
 
 ~~~http
-GET <Base URL>/entries/<Entry ID>
+GET https://transparency.example/entries/{entry_id}
 ~~~
 
 Query parameters:
@@ -221,7 +292,7 @@ One of the following:
 #### Request
 
 ~~~http
-GET <Base URL>/entries/<Entry ID>/receipt
+GET https://transparency.example/entries/{entry_id}/receipt
 ~~~
 
 #### Response
