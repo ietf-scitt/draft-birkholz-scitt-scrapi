@@ -5,10 +5,10 @@
 TBD                                                          H. Birkholz
 Internet-Draft                                            Fraunhofer SIT
 Intended status: Standards Track                               O. Steele
-Expires: 9 June 2024                                           Transmute
+Expires: 15 June 2024                                          Transmute
                                                                J. Geater
                                                          DataTrails Inc.
-                                                         7 December 2023
+                                                        13 December 2023
 
 
                           SCITT Reference APIs
@@ -42,7 +42,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 9 June 2024.
+   This Internet-Draft will expire on 15 June 2024.
 
 Copyright Notice
 
@@ -67,11 +67,14 @@ Table of Contents
      2.2.  Discovering Federation
      2.3.  Discovering Feeds
    3.  SCITT Reference REST API
-     3.1.  Messages
-       3.1.1.  Register Signed Statement
-       3.1.2.  Retrieve Operation Status
-       3.1.3.  Retrieve Signed Statement
-       3.1.4.  Retrieve Registration Receipt
+     3.1.  Key Binding Confirmation
+       3.1.1.  Challenge Endpoint
+       3.1.2.  Registration Endpoint
+     3.2.  Messages
+       3.2.1.  Register Signed Statement
+       3.2.2.  Retrieve Operation Status
+       3.2.3.  Retrieve Signed Statement
+       3.2.4.  Retrieve Registration Receipt
    4.  Privacy Considerations
    5.  Security Considerations
    6.  IANA Considerations
@@ -125,7 +128,111 @@ Table of Contents
 
 3.  SCITT Reference REST API
 
-3.1.  Messages
+3.1.  Key Binding Confirmation
+
+   In cases where a signed statement is issued by one party and
+   registered by another, there is a need to prove posession of key
+   material and detect tampering while authenticating both parties.
+
+   Typically a nonce would be chosen by the transparency service and the
+   second party would sign over the nonce, when registering the first
+   issuer's signed statement.
+
+   In order to avoid interactivity and improve interoperability,
+   document describes a non-exclusive, but mandatory to support,
+   confirmation scheme
+
+   In this scheme the verifier's challenge is a recent unix timestamp,
+   the presenting party need not request this information from the
+   transparency service.
+
+   Here is an example key binding token that can be paired with the
+   confirmation claim in a signed statement:
+
+   {
+     "iat": 1698077790,
+     "aud": "https://transparency.example",
+     "nonce": "1698077790"
+   }
+
+   When applying registration policies to signed statements with
+   confirmation, the transparency service acts as a verifier, and
+   performs the following checks:
+
+   1.  verify the integrity of the issuer's signed statement
+
+   2.  confirm the verified content meets the registration policy for
+       the transparency service.
+
+   3.  verify the key binding token, using the confirmation claim in the
+       verified issuer signed statement
+
+   4.  ensure the key binding token has a nonce that is a string
+       representation of a recent unix timestamp
+
+   The exact window of validity for proving possession is a
+   configuration detail of the transparency service. unix timestamps are
+   used so that only a losely synchronised notion of time need be
+   assumed and there is no requirement to account for timezones
+
+   If the confirmation key is stolen, the attacker can produce key
+   binding tokens from that point forward in time.  In an interactive
+   confirmation schema, the transparency service can force the
+   confirmation key holder to produce a signature over a nonce that is
+   not guessable, and this prevents certain attacks related to the
+   duration of access to a signing capability and other timing details.
+   However, the cost of coordinating with the transparency service,
+   coupled with the purpose of registering with a transparency service
+   (to obtain a receipt, proving a signed statement was acceptable at a
+   point in time) justify specifying the recent timestamp nonce as a
+   mandatory to implement context binding.
+
+   In the case that a SCITT transparency service wants to support
+   challenges (nonces) that are context binding, the transparency
+   service can expose a "challenge token endpoint".
+
+   This endpoint can process request paramters, and issuer a challenge
+   token, that future regsitrations can use to bind to the original
+   request.  This interaction model works well for scenarios where
+   requirements for a given regsitration might change over time, but it
+   is important for the registering party to commit to acceptable values
+   at the time that a signed statement is registered.  These endpoints
+   are optional to implement.
+
+3.1.1.  Challenge Endpoint
+
+3.1.1.1.  Request
+
+   GET https://transparency.example/registration/challenge
+
+3.1.1.2.  Response
+
+   *  Header: Content-Type: application/json
+
+   *  (Optional) Header: Retry-After: <seconds>
+
+   *  Query: ?intention={todo}
+
+   *  Body: { "token": "JWT | SD-JWT | base64url( CWT | SD-CWT )>" }
+
+3.1.2.  Registration Endpoint
+
+3.1.2.1.  Request
+
+   POST https://transparency.example/registration
+
+   Headers:
+
+   *  Content-Type: application/cose
+
+   Body: SCITT COSE_Sign1 message
+
+   Note: that the challenge token MUST be present and integrity
+   protected when submitting signed statements to this endpoint.  Note:
+   this endpoint is a duplicate of POST https://transparency.example/
+   entries
+
+3.2.  Messages
 
    All messages are sent as HTTP GET or POST requests.
 
@@ -152,7 +259,7 @@ Table of Contents
 
    {
      "type": "urn:ietf:params:scitt:error:badSignatureAlgorithm",
-     "detail": "The Statement was signed with an unsupported algorithm"
+     "detail": "Signing algorithm not support"
    }
 
    Most error types are specific to the type of request and are defined
@@ -171,11 +278,11 @@ Table of Contents
    to wait before retrying the request.  In the absence of this header
    field, this document does not specify a minimum.
 
-3.1.1.  Register Signed Statement
+3.2.1.  Register Signed Statement
 
-3.1.1.1.  Request
+3.2.1.1.  Request
 
-   POST <Base URL>/entries
+   POST https://transparency.example/entries
 
    Headers:
 
@@ -183,7 +290,7 @@ Table of Contents
 
    Body: SCITT COSE_Sign1 message
 
-3.1.1.2.  Response
+3.2.1.2.  Response
 
    One of the following:
 
@@ -216,13 +323,13 @@ Table of Contents
    Operation ID returned in the response.  Clients should always obtain
    a Receipt as a proof that Registration has succeeded.
 
-3.1.2.  Retrieve Operation Status
+3.2.2.  Retrieve Operation Status
 
-3.1.2.1.  Request
+3.2.2.1.  Request
 
-   GET <Base URL>/operations/<Operation ID>
+   GET https://transparency.example/operations/{operation_id}
 
-3.1.2.2.  Response
+3.2.2.2.  Response
 
    One of the following:
 
@@ -267,11 +374,11 @@ Table of Contents
    status.  This is because differentiating between the two may not be
    possible in an eventually consistent system.
 
-3.1.3.  Retrieve Signed Statement
+3.2.3.  Retrieve Signed Statement
 
-3.1.3.1.  Request
+3.2.3.1.  Request
 
-   GET <Base URL>/entries/<Entry ID>
+   GET https://transparency.example/entries/{entry_id}
 
    Query parameters:
 
@@ -281,7 +388,7 @@ Table of Contents
    Statement is returned with the corresponding Registration Receipt
    embedded in the COSE unprotected header.
 
-3.1.3.2.  Response
+3.2.3.2.  Response
 
    One of the following:
 
@@ -295,13 +402,13 @@ Table of Contents
 
       -  Error code: entryNotFound
 
-3.1.4.  Retrieve Registration Receipt
+3.2.4.  Retrieve Registration Receipt
 
-3.1.4.1.  Request
+3.2.4.1.  Request
 
-   GET <Base URL>/entries/<Entry ID>/receipt
+   GET https://transparency.example/entries/{entry_id}/receipt
 
-3.1.4.2.  Response
+3.2.4.2.  Response
 
    One of the following:
 
