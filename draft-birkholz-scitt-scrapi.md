@@ -3,10 +3,9 @@ title: SCITT Reference APIs
 abbrev: SCRAPI
 docname: draft-birkholz-scitt-scrapi-latest
 stand_alone: true
-submissionType: IETF
 ipr: trust200902
 area: Security
-submissiontype: IETF
+submissionType: IETF
 wg: TBD
 kw: Internet-Draft
 cat: std
