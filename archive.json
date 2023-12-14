@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-12-12T01:06:44.298661+00:00",
+  "timestamp": "2023-12-14T01:05:25.843195+00:00",
   "repo": "ietf-scitt/draft-birkholz-scitt-scrapi",
   "labels": [
     {
@@ -170,7 +170,7 @@
             "abbreviatedOid": "da8fbe0"
           },
           "author": "JAG-UK",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "All looks good, still lots to do :-)",
           "createdAt": "2023-08-03T20:42:20Z",
@@ -190,7 +190,7 @@
             "abbreviatedOid": "da8fbe0"
           },
           "author": "JAG-UK",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2023-08-04T08:39:14Z",
@@ -223,7 +223,7 @@
             "abbreviatedOid": "da8fbe0"
           },
           "author": "JAG-UK",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2023-08-14T15:17:49Z",
@@ -243,7 +243,7 @@
             "abbreviatedOid": "da8fbe0"
           },
           "author": "JAG-UK",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "APPROVED",
           "body": "LGTM",
           "createdAt": "2023-08-14T15:18:24Z",
@@ -366,7 +366,7 @@
             "abbreviatedOid": "efeda09"
           },
           "author": "JAG-UK",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "First glance looks like a good start. Have some concerns about the bundling some data structures so I want to import it into an OpenAPI package and mock it out",
           "createdAt": "2023-09-28T15:13:37Z",
@@ -610,24 +610,26 @@
       "id": "PR_kwDOJ-mB5s5hh5x1",
       "title": "Add straw man for key bound signed statements",
       "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-scrapi/pull/9",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "OR13",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Strawman proposal for: \r\n\r\n- https://mailarchive.ietf.org/arch/msg/scitt/QcKHs7-SH1NcsXrPzsa4FCdUSGY/\r\n- PoC implementation here https://github.com/transmute-industries/dune/pull/1",
       "createdAt": "2023-12-08T14:30:13Z",
-      "updatedAt": "2023-12-11T18:13:30Z",
+      "updatedAt": "2023-12-13T21:34:17Z",
       "baseRepository": "ietf-scitt/draft-birkholz-scitt-scrapi",
       "baseRefName": "main",
       "baseRefOid": "0b60cf34231d60cea4603c987f386419febf52ef",
       "headRepository": "transmute-industries/draft-birkholz-scitt-scrapi",
       "headRefName": "feat/key-binding-registrations",
-      "headRefOid": "08b30b1dabfced96658c9cbe30cc753e34101eeb",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "f8a3b97db3e820c4db644f6150465faf7b5df5b6",
+      "closedAt": "2023-12-13T21:34:17Z",
+      "mergedAt": "2023-12-13T21:34:17Z",
+      "mergedBy": "SteveLasker",
+      "mergeCommit": {
+        "oid": "6776df078064296668ccbfb61461bac03364a75a"
+      },
       "comments": [
         {
           "author": "mprorock",
@@ -657,7 +659,7 @@
             "abbreviatedOid": "c432b51"
           },
           "author": "robinbryce",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "general thumbs up",
           "createdAt": "2023-12-11T15:04:10Z",
@@ -744,6 +746,177 @@
               "body": "please make all numbers 1. and let markdown formatting resolve incremental numbering. If someone inserts a new item, the rest won't need to change.",
               "createdAt": "2023-12-11T15:57:41Z",
               "updatedAt": "2023-12-11T18:13:30Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJ-mB5s5p47oU",
+          "commit": {
+            "abbreviatedOid": "08b30b1"
+          },
+          "author": "SteveLasker",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "looks good with some markdown formatting an a MAY reference updates",
+          "createdAt": "2023-12-12T03:32:44Z",
+          "updatedAt": "2023-12-12T03:37:19Z",
+          "comments": [
+            {
+              "originalPosition": 50,
+              "body": "```suggestion\r\n~~~http\r\n```",
+              "createdAt": "2023-12-12T03:32:44Z",
+              "updatedAt": "2023-12-12T03:37:19Z"
+            },
+            {
+              "originalPosition": 64,
+              "body": "```suggestion\r\n~~~http\r\n```",
+              "createdAt": "2023-12-12T03:32:58Z",
+              "updatedAt": "2023-12-12T03:37:19Z"
+            },
+            {
+              "originalPosition": 33,
+              "body": "nit for markdown consistency\r\n```suggestion\r\n4. ensure the key binding token has a nonce that is a string representation of a recent unix timestamp\r\n```",
+              "createdAt": "2023-12-12T03:34:57Z",
+              "updatedAt": "2023-12-12T03:37:19Z"
+            },
+            {
+              "originalPosition": 38,
+              "body": "```suggestion\r\nIn an interactive confirmation schema, the transparency service can force the confirmation key holder to produce a signature over a nonce that is not guessable, and this prevents certain attacks related to the duration of access to a signing capability and other timing details.\r\nHowever, the cost of coordinating with the transparency service, coupled with the purpose of registering with a transparency service (to obtain a receipt, proving a signed statement was acceptable at a point in time) justify specifying the recent timestamp nonce as a mandatory to implement context binding.\r\n```",
+              "createdAt": "2023-12-12T03:36:05Z",
+              "updatedAt": "2023-12-12T03:37:19Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJ-mB5s5p-KD1",
+          "commit": {
+            "abbreviatedOid": "08b30b1"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-12-12T16:12:11Z",
+          "updatedAt": "2023-12-12T16:12:12Z",
+          "comments": [
+            {
+              "originalPosition": 50,
+              "body": "^ does this work? (impact spec rendering / supported by kramdown-rfc)\r\n\r\n```http\r\nPOST https://example.com/entries\r\n```\r\n\r\napparently, this is a thing, and the current examples are malformed.",
+              "createdAt": "2023-12-12T16:12:11Z",
+              "updatedAt": "2023-12-12T16:22:22Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJ-mB5s5p-LvU",
+          "commit": {
+            "abbreviatedOid": "08b30b1"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-12-12T16:15:35Z",
+          "updatedAt": "2023-12-12T16:15:36Z",
+          "comments": [
+            {
+              "originalPosition": 16,
+              "body": "fixed by reverting",
+              "createdAt": "2023-12-12T16:15:35Z",
+              "updatedAt": "2023-12-12T16:15:36Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJ-mB5s5p-MKi",
+          "commit": {
+            "abbreviatedOid": "08b30b1"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-12-12T16:16:26Z",
+          "updatedAt": "2023-12-12T16:16:27Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "done",
+              "createdAt": "2023-12-12T16:16:26Z",
+              "updatedAt": "2023-12-12T16:16:27Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJ-mB5s5p-MWE",
+          "commit": {
+            "abbreviatedOid": "08b30b1"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-12-12T16:16:47Z",
+          "updatedAt": "2023-12-12T16:16:48Z",
+          "comments": [
+            {
+              "originalPosition": 31,
+              "body": "done",
+              "createdAt": "2023-12-12T16:16:47Z",
+              "updatedAt": "2023-12-12T16:16:48Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJ-mB5s5p-1Dt",
+          "commit": {
+            "abbreviatedOid": "c8180f0"
+          },
+          "author": "SteveLasker",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2023-12-12T17:29:36Z",
+          "updatedAt": "2023-12-12T17:29:36Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOJ-mB5s5qFImO",
+          "commit": {
+            "abbreviatedOid": "c8180f0"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-12-13T14:11:17Z",
+          "updatedAt": "2023-12-13T14:11:17Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "```suggestion\r\nsubmissionType: IETF\r\n```",
+              "createdAt": "2023-12-13T14:11:17Z",
+              "updatedAt": "2023-12-13T14:11:17Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJ-mB5s5qFIqt",
+          "commit": {
+            "abbreviatedOid": "c8180f0"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-12-13T14:11:25Z",
+          "updatedAt": "2023-12-13T14:11:25Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "```suggestion\r\n```",
+              "createdAt": "2023-12-13T14:11:25Z",
+              "updatedAt": "2023-12-13T14:11:25Z"
             }
           ]
         }
