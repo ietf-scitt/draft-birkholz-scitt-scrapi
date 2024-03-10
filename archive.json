@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-03-07T00:51:38.578470+00:00",
+  "timestamp": "2024-03-10T01:05:47.765681+00:00",
   "repo": "ietf-scitt/draft-birkholz-scitt-scrapi",
   "labels": [
     {
@@ -117,6 +117,22 @@
       "body": "Copied from [ietf-wg-scitt/draft-ietf-scitt-architecture #87](https://github.com/ietf-wg-scitt/draft-ietf-scitt-architecture/issues/87)",
       "createdAt": "2023-12-05T16:34:18Z",
       "updatedAt": "2023-12-05T16:34:18Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 10,
+      "id": "I_kwDOJ-mB5s6BtEzM",
+      "title": "Add some GS1 Examples",
+      "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-scrapi/issues/10",
+      "state": "OPEN",
+      "author": "OR13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "https://www.rfc-editor.org/rfc/rfc5134.html",
+      "createdAt": "2024-03-08T13:46:34Z",
+      "updatedAt": "2024-03-08T13:46:34Z",
       "closedAt": null,
       "comments": []
     }
