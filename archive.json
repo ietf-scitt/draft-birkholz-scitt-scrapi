@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-03-10T01:05:47.765681+00:00",
+  "timestamp": "2024-03-12T01:01:11.891847+00:00",
   "repo": "ietf-scitt/draft-birkholz-scitt-scrapi",
   "labels": [
     {
@@ -132,9 +132,17 @@
       "labels": [],
       "body": "https://www.rfc-editor.org/rfc/rfc5134.html",
       "createdAt": "2024-03-08T13:46:34Z",
-      "updatedAt": "2024-03-08T13:46:34Z",
+      "updatedAt": "2024-03-11T01:35:59Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "pdxjohnny",
+          "authorAssociation": "NONE",
+          "body": "Aren't we using this repo now? https://github.com/ietf-wg-scitt/draft-ietf-scitt-scrapi",
+          "createdAt": "2024-03-11T01:35:57Z",
+          "updatedAt": "2024-03-11T01:35:57Z"
+        }
+      ]
     }
   ],
   "pulls": [
