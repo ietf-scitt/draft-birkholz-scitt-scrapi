@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-03-12T01:01:11.891847+00:00",
+  "timestamp": "2024-03-14T01:01:48.310280+00:00",
   "repo": "ietf-scitt/draft-birkholz-scitt-scrapi",
   "labels": [
     {
@@ -55,15 +55,15 @@
       "id": "I_kwDOJ-mB5s54yek4",
       "title": "using media types for errors",
       "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-scrapi/issues/4",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "SteveLasker",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "See [using media types for errors](https://github.com/ietf-wg-scitt/draft-ietf-scitt-architecture/issues/62) from https://github.com/ietf-wg-scitt/draft-ietf-scitt-architecture/",
       "createdAt": "2023-12-05T15:38:07Z",
-      "updatedAt": "2023-12-05T19:38:01Z",
-      "closedAt": null,
+      "updatedAt": "2024-03-12T19:07:07Z",
+      "closedAt": "2024-03-12T19:07:07Z",
       "comments": [
         {
           "author": "aj-stein-nist",
@@ -93,15 +93,15 @@
       "id": "I_kwDOJ-mB5s54yyZ0",
       "title": "Issuer identity and key transparency",
       "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-scrapi/issues/5",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "SteveLasker",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Copying here from [ietf-wg-scitt/draft-ietf-scitt-architecture](https://github.com/ietf-wg-scitt/draft-ietf-scitt-architecture/issues/65)",
       "createdAt": "2023-12-05T16:14:49Z",
-      "updatedAt": "2023-12-05T16:14:58Z",
-      "closedAt": null,
+      "updatedAt": "2024-03-12T19:07:14Z",
+      "closedAt": "2024-03-12T19:07:14Z",
       "comments": []
     },
     {
@@ -109,15 +109,15 @@
       "id": "I_kwDOJ-mB5s54y_Se",
       "title": "Document key discovery for OIDC",
       "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-scrapi/issues/6",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "SteveLasker",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Copied from [ietf-wg-scitt/draft-ietf-scitt-architecture #87](https://github.com/ietf-wg-scitt/draft-ietf-scitt-architecture/issues/87)",
       "createdAt": "2023-12-05T16:34:18Z",
-      "updatedAt": "2023-12-05T16:34:18Z",
-      "closedAt": null,
+      "updatedAt": "2024-03-12T19:07:18Z",
+      "closedAt": "2024-03-12T19:07:18Z",
       "comments": []
     },
     {
@@ -125,15 +125,15 @@
       "id": "I_kwDOJ-mB5s6BtEzM",
       "title": "Add some GS1 Examples",
       "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-scrapi/issues/10",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "OR13",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "https://www.rfc-editor.org/rfc/rfc5134.html",
       "createdAt": "2024-03-08T13:46:34Z",
-      "updatedAt": "2024-03-11T01:35:59Z",
-      "closedAt": null,
+      "updatedAt": "2024-03-12T19:06:39Z",
+      "closedAt": "2024-03-12T19:06:38Z",
       "comments": [
         {
           "author": "pdxjohnny",
@@ -141,8 +141,31 @@
           "body": "Aren't we using this repo now? https://github.com/ietf-wg-scitt/draft-ietf-scitt-scrapi",
           "createdAt": "2024-03-11T01:35:57Z",
           "updatedAt": "2024-03-11T01:35:57Z"
+        },
+        {
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "body": "correct.",
+          "createdAt": "2024-03-12T19:06:38Z",
+          "updatedAt": "2024-03-12T19:06:38Z"
         }
       ]
+    },
+    {
+      "number": 11,
+      "id": "I_kwDOJ-mB5s6CFgvp",
+      "title": "ARCHIVE THIS REPO",
+      "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-scrapi/issues/11",
+      "state": "OPEN",
+      "author": "OR13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "we are now using https://github.com/ietf-wg-scitt/draft-ietf-scitt-scrapi",
+      "createdAt": "2024-03-12T19:08:00Z",
+      "updatedAt": "2024-03-12T19:08:00Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
