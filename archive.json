@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-22T01:22:49.170609+00:00",
+  "timestamp": "2024-10-24T01:21:52.746352+00:00",
   "repo": "ietf-scitt/draft-birkholz-scitt-scrapi",
   "labels": [
     {
@@ -136,7 +136,7 @@
       "closedAt": "2024-03-12T19:06:38Z",
       "comments": [
         {
-          "author": "pdxjohnny",
+          "author": "johnandersen777",
           "authorAssociation": "NONE",
           "body": "Aren't we using this repo now? https://github.com/ietf-wg-scitt/draft-ietf-scitt-scrapi",
           "createdAt": "2024-03-11T01:35:57Z",
